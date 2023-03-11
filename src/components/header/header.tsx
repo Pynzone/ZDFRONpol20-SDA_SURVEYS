@@ -22,7 +22,7 @@ const Header: React.FC = () => {
     const handleCloseNavMenu = () => {
       setAnchorElNav(null);
     };
-  
+
     return <>
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -51,9 +51,6 @@ const Header: React.FC = () => {
                         }}
                         open={Boolean(anchorElNav)}
                         onClose={handleCloseNavMenu}
-                        sx={{
-                            display: { xs: 'block', md: 'none' },
-                        }}
                     >
                         {pages.map((page) => (
                             <MenuItem key={page} onClick={handleCloseNavMenu}>
