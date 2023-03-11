@@ -12,8 +12,8 @@ const SurveyForm: React.FC = () => {
 
     const [formData, setFormData] = useState<FormData>(
         {
-            name: '',
-            surname: '',
+            name: 'Jan',
+            surname: 'Kowalski',
             gender: undefined
         }
     )
@@ -22,14 +22,21 @@ const SurveyForm: React.FC = () => {
         event.preventDefault();
     }
 
+    const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+        console.log(event)
+        const { id, value } = event.target
+        const newState = { ...formData, [id]: value }
+        setFormData(newState)
+    }
+
     return <form onSubmit={handleSubmit}>
         <div>
             <label htmlFor="name">Name</label>
-            <input id="name" type="text" value={formData.name} />
+            <input id="name" type="text" value={formData.name} onChange={handleChange} />
         </div>
         <div>
             <label htmlFor="surname">Surname</label>
-            <input id="surname" type="text" value={formData.surname} />
+            <input id="surname" type="text" value={formData.surname} onChange={handleChange} />
         </div>
         <div>
             <label htmlFor="gender">Gender:</label>
