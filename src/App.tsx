@@ -7,6 +7,7 @@ import InfoView from './views/info/info';
 import SurveyView from './views/survey/survey';
 import SurveysListView from './views/surveys-list/surveys-list';
 import SingleSurveyView from './views/surveys-list/single-survey/single-survey';
+
 function App() {
   return (
     <div>
