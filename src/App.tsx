@@ -1,13 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom'
+import HelloView from './views/hello/hello';
+import NotFoundView from './views/not-found/not-found';
+import UserView from './views/user/user';
 
-const HelloComponent: React.FC = () => {
-  return <>Hello from HelloComponent</>
-}
-
-const UserComponent: React.FC = () => {
-  return <>Hello from UserComponent</>
-}
 
 const CurrentUserComponent: React.FC = () => {
   const params = useParams()
@@ -15,19 +11,15 @@ const CurrentUserComponent: React.FC = () => {
   return <>Hello from CurrentUserComponent</>
 }
 
-const NotFoundComponent: React.FC = () => {
-  return <>NotFoundComponent</>
-}
-
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route index element={<HelloComponent />}/>
-          <Route path={'user'} element={<UserComponent />}/>
+          <Route index element={<HelloView />}/>
+          <Route path={'user'} element={<UserView />}/>
           <Route path={'user/:id'} element={<CurrentUserComponent />}/>
-          <Route path={'*'} element={<NotFoundComponent />}/>
+          <Route path={'*'} element={<NotFoundView/>}/>
         </Routes>
       </BrowserRouter>
     </div>
