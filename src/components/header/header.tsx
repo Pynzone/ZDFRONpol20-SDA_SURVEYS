@@ -8,8 +8,31 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {useState} from 'react'
+import { Link } from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+export interface Page {
+    id: string,
+    path: string,
+    label: string,
+}
+
+const pages: Page[] = [
+    {
+        id: '1',
+        path: '',
+        label: 'Info'
+    }, 
+    {
+        id: '2',
+        path: 'survey',
+        label: 'Survey'
+    },
+    {
+        id: '3',
+        path: 'surveys-list',
+        label: 'Surveys list'
+    },
+];
 
 const Header: React.FC = () => {
 
@@ -53,8 +76,8 @@ const Header: React.FC = () => {
                         onClose={handleCloseNavMenu}
                     >
                         {pages.map((page) => (
-                            <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">{page}</Typography>
+                            <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                                <Link to={page.path}>{page.label}</Link>
                             </MenuItem>
                         ))}
                     </Menu>
