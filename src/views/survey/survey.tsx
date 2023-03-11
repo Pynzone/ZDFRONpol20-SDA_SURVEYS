@@ -1,6 +1,9 @@
+import SurveyForm from "../../components/survey-form/survey-form"
+
 const SurveyView: React.FC = () => {
     return <>
-        SurveyView
+        <h1>SurveyView</h1>
+        <SurveyForm />
     </>
 }
 
