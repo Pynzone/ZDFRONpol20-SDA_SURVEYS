@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "posts": [
     {
       "id": 1,
@@ -16,4 +17,26 @@
   "profile": {
     "name": "typicode"
   }
+=======
+  "survey": [
+    {
+      "id": 1,
+      "name": "Grzegorz",
+      "surname": "Kikut",
+      "gender": "male"
+    },
+    {
+      "name": "Jan",
+      "surname": "Kaczmarek",
+      "gender": "male",
+      "id": 2
+    },
+    {
+      "name": "Jan",
+      "surname": "Kaczmarek",
+      "gender": "male",
+      "id": 3
+    }
+  ]
+>>>>>>> a0bba8d982eabd5870395de603841386a4cb8537
 }
