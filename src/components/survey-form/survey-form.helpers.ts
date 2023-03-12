@@ -1,4 +1,4 @@
-import { FormData } from "./survey-form"
+import { FormData, FormErrors } from "./survey-form"
 
 // W przypadku zwrócenia stringa wiemy że wartość jest niepoprawna
 // W przypadku null wartośc sie poprawna
@@ -13,13 +13,12 @@ export type ValidationDefinition = {
     }
 }
 
-
 export const validationDefinition: ValidationDefinition = {
     name: {
         validators: [
             (value: string) => value.length >= 3 ? null : 'Imię powinno mieć minimum 3 znaki',
             (value: string) => value.length <= 20 ? null : 'Imię powinno mieć maksymalnie 20 znaków',
-        ]
+        ],
     },
     // address: {
     surname: {
@@ -33,16 +32,22 @@ export const validationDefinition: ValidationDefinition = {
     }
 }
 
+export const getFormInitialData = (): FormData => ({
+    name: 'Jan',
+    surname: 'Kowalski',
+    gender: undefined
+})
 
-// //Wartosc
-// const name = '';
+export const getErrorInitialData = (): FormErrors => ({
+    name: {
+        error: ''
+    },
+    surname: {
+        error: ''
+    },
+    gender: {
+        error: ''
+    }
+})
 
-// if(name.length === 0){
-//     //error
-// }
 
-// if(name.length === 0){
-//     //error
-// }
-
-// const validator = (value: string) => value.length >= 5 ? null : 'Wartośc powinna miec minimum 5 znaków'
