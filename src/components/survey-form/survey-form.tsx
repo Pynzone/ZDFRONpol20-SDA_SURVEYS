@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SurveyFieldContainerStyled, SurveyFormContainerStyled } from "../../styled/survey-form/survey-form";
 import Button from '@mui/material/Button'
+import { validationDefinition } from "./survey-form.helpers";
 
 export interface FormData {
     name: string;
@@ -19,6 +20,13 @@ const SurveyForm: React.FC = () => {
             gender: undefined
         }
     )
+    const checkFiledByValidationSchema = (fieldName: keyof FormData, value: string) => {
+        const { validators } = validationDefinition[fieldName]
+
+        for (const validator of validators) {
+            const validatorResponse: string | null = validator(value)
+        }
+    }
 
     const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
         console.log(event)
@@ -28,6 +36,7 @@ const SurveyForm: React.FC = () => {
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         console.log(event)
         const { id, value } = event.target
+        checkFiledByValidationSchema(id as keyof FormData, value)
         const newState = { ...formData, [id]: value }
         setFormData(newState)
     }
