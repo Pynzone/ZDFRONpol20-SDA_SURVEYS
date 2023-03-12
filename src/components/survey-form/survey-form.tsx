@@ -2,12 +2,12 @@ import { useState } from "react";
 import { SurveyFieldContainerStyled, SurveyFieldError, SurveyFormContainerStyled } from "../../styled/survey-form/survey-form";
 import Button from '@mui/material/Button'
 import { getErrorInitialData, getFormInitialData, validationDefinition } from "./survey-form.helpers";
-import { validationDefinition } from "./survey-form.helpers";
+//import { validationDefinition } from "./survey-form.helpers";
 
 export interface FormData {
     name: string;
     surname: string;
-    gender: Gender 
+    gender: Gender
 }
 
 export type FormErrors = {
@@ -40,9 +40,11 @@ const SurveyForm: React.FC = () => {
             if (validatorResponse) {
                 // Ustawiamy bład walidacji dla danego fieldu
                 setFormErrors(prevFormErrors => {
-                    return ({...prevFormErrors, [fieldName]: {
-                        error: validatorResponse
-                    }})
+                    return ({
+                        ...prevFormErrors, [fieldName]: {
+                            error: validatorResponse
+                        }
+                    })
                 })
                 // Wnioskujemy że wartosc w fieldzie nie jest poprawna
                 // Ustawiamy wartosc flagi isFieldValid na false
@@ -56,11 +58,13 @@ const SurveyForm: React.FC = () => {
         // Sprawdzamy czy nasze załozenie było poprawne
         // Tj czy okazało się że nie było błedów walidacyjnych
         // Które zmieniłyby wartosc flagi isFieldValid na false
-        if(isFieldValid) {
+        if (isFieldValid) {
             // To oznacza ze nie ma błedów i możemy usunąć wczesniejsze błedy z danego fieldu
-            setFormErrors(prevState =>  ({...prevState, [fieldName]: {
-                error: null
-            }}))
+            setFormErrors(prevState => ({
+                ...prevState, [fieldName]: {
+                    error: null
+                }
+            }))
         }
 
         return isFieldValid;
@@ -91,12 +95,12 @@ const SurveyForm: React.FC = () => {
 
             // Jeśli dalej formularz jest wg nas poprawny ale konkretny
             // field nie jest to ustaw ze cały formularz jest niepoprawny
-            if(isAllFieldValid && !isFieldValid){
+            if (isAllFieldValid && !isFieldValid) {
                 isAllFieldValid = false;
             }
         })
 
-        if(!isAllFieldValid){
+        if (!isAllFieldValid) {
             console.log('Błedne dane')
             return;
         }
