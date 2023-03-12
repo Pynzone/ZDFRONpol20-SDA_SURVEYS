@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { SurveyFieldContainerStyled, SurveyFormContainerStyled } from "../../styled/survey-form/survey-form";
+import Button from '@mui/material/Button'
 
 interface FormData {
     name: string;
@@ -29,24 +31,26 @@ const SurveyForm: React.FC = () => {
         setFormData(newState)
     }
 
-    return <form onSubmit={handleSubmit}>
-        <div>
-            <label htmlFor="name">Name</label>
-            <input id="name" type="text" value={formData.name} onChange={handleChange} />
-        </div>
-        <div>
-            <label htmlFor="surname">Surname</label>
-            <input id="surname" type="text" value={formData.surname} onChange={handleChange} />
-        </div>
-        <div>
-            <label htmlFor="gender">Gender:</label>
-            <select value={formData.gender} id="gender">
-                <option value={'male'}>Male</option>
-                <option value={'female'}>Female</option>
-            </select>
-        </div>
-        <button type="submit">Save</button>
-    </form>
+    return <SurveyFormContainerStyled>
+        <form onSubmit={handleSubmit}>
+            <SurveyFieldContainerStyled>
+                <label htmlFor="name">Name</label>
+                <input id="name" type="text" value={formData.name} onChange={handleChange} />
+            </SurveyFieldContainerStyled>
+            <SurveyFieldContainerStyled>
+                <label htmlFor="surname">Surname</label>
+                <input id="surname" type="text" value={formData.surname} onChange={handleChange} />
+            </SurveyFieldContainerStyled>
+            <SurveyFieldContainerStyled>
+                <label htmlFor="gender">Gender:</label>
+                <select value={formData.gender} id="gender">
+                    <option value={'male'}>Male</option>
+                    <option value={'female'}>Female</option>
+                </select>
+            </SurveyFieldContainerStyled>
+            <Button variant="contained" type="submit">Save</Button>
+        </form>
+    </SurveyFormContainerStyled>
 }
 
 export default SurveyForm

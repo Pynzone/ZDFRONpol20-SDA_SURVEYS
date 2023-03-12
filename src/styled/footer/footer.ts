@@ -6,6 +6,7 @@ interface FooterStyledProps {
 
 export const FooterStyled = styled.footer<FooterStyledProps>`
     position: fixed;
+    display: none;
     margin: 10px;
     background-color: ${props => props.backgroundColor || 'initial'};
 `

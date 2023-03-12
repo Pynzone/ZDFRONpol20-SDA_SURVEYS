@@ -1,0 +1,4 @@
+1/ Jeśli znam formularze i ich walidacje -> uzywam useForm i formik 
+2/ Jesli ktos chce uzywac Firestora zamiast JSON-server to moze :D
+3*/ Zrobienie wykresów na podstawie danych
+4**/ Logowanie i zakładanie konta
