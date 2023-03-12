@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SurveyFieldContainerStyled, SurveyFormContainerStyled } from "../../styled/survey-form/survey-form";
 import Button from '@mui/material/Button'
 
-interface FormData {
+export interface FormData {
     name: string;
     surname: string;
     gender: Gender | undefined
@@ -19,6 +19,7 @@ const SurveyForm: React.FC = () => {
             gender: undefined
         }
     )
+
     const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
         console.log(event)
         event.preventDefault();
