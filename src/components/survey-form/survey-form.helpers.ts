@@ -33,21 +33,19 @@ export const validationDefinition: ValidationDefinition = {
 }
 
 export const getFormInitialData = (): FormData => ({
-    name: 'Jan',
-    surname: 'Kowalski',
-    gender: undefined
+    name: '',
+    surname: '',
+    gender: 'male'
 })
 
 export const getErrorInitialData = (): FormErrors => ({
     name: {
-        error: ''
+        error: null
     },
     surname: {
-        error: ''
+        error: null
     },
     gender: {
-        error: ''
+        error: null
     }
 })
-
-
