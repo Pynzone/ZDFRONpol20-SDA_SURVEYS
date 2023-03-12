@@ -1,0 +1,22 @@
+{
+  "survey": [
+    {
+      "id": 1,
+      "name": "Grzegorz",
+      "surname": "Kikut",
+      "gender": "male"
+    },
+    {
+      "name": "Jan",
+      "surname": "Kaczmarek",
+      "gender": "male",
+      "id": 2
+    },
+    {
+      "name": "Jan",
+      "surname": "Kaczmarek",
+      "gender": "male",
+      "id": 3
+    }
+  ]
+}

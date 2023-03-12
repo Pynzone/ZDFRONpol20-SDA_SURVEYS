@@ -2,6 +2,7 @@ import { useState } from "react";
 import { SurveyFieldContainerStyled, SurveyFieldError, SurveyFormContainerStyled } from "../../styled/survey-form/survey-form";
 import Button from '@mui/material/Button'
 import { getErrorInitialData, getFormInitialData, validationDefinition } from "./survey-form.helpers";
+import { apiService } from "../../services/api/api.service";
 
 export interface FormData {
     name: string;
@@ -66,7 +67,7 @@ const SurveyForm: React.FC = () => {
 
     }
 
-    const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
+    const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (event) => {
         event.preventDefault();
 
         // Wyciagniecie kluczy z obiektu formData
@@ -93,8 +94,12 @@ const SurveyForm: React.FC = () => {
             return;
         }
 
-
         console.log('Dane poprawne')
+
+        await apiService.createSurvey(formData);
+
+        setFormData(getFormInitialData())
+        setFormErrors(getErrorInitialData())
         // Zapisywanie danych do bazy
     }
 
