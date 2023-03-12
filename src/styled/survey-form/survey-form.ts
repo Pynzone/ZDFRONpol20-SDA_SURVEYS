@@ -14,3 +14,6 @@ export const SurveyFieldContainerStyled = styled.div`
     margin: 15px;
 `
 
+export const SurveyFieldError = styled.span`
+    color: red
+`

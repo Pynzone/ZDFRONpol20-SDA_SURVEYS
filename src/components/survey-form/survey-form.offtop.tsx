@@ -31,19 +31,22 @@ const sample: Sample = {
 const getFormInitialDataWrong: FormData = ({
     name: 'Jan',
     surname: 'Kowalski',
-    gender: undefined
+    gender: 'male'
 })
 
 // Dobre - bo tworzymy nowy obiekt
 const getFormInitialData = (): FormData => ({
     name: 'Jan',
     surname: 'Kowalski',
-    gender: undefined
+    gender: 'male'
 })
 
 const newSample: Sample = sample
 const newName: string = sample.name
 const {name: newName2, price, quantity }= sample;
 //console.log(newName2)
+
+// setValue('new value')
+// setValue(oldValue => 'new value')
 
 export default 'Offtop'
